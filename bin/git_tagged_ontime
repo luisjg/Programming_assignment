@@ -1,0 +1,47 @@
+#! /bin/bash
+
+
+function convert_time_seconds () {
+
+  input_date="$1"   # Date format: Nov 11 12:52 PDT
+
+  # Check which effective OS is being used
+  _OS=$(uname -o 2>/dev/null)
+  if [[ -z "$_OS" ]] ; then
+     # Older versions of MacOS don't support the -o option
+    _OS="$(uname -s)"
+  fi
+
+  case "${_OS}" in
+     Darwin ) # MacOS
+       date -j -f "%b %d %H:%M %Z" "${input_date}" +%s
+       ;;
+     GNU/Linux ) # Ubuntu
+       date --date="${input_date}" +"%s"
+       ;;
+  esac
+}
+
+
+function git_tagged_ontime () {
+  due_date="$1"     # Date format: Nov 11 12:52 PDT
+  commit="$2"
+
+  due_date_seconds=$(convert_time_seconds "${due_date}")
+
+  # Note if the commit is empty, then it is equivalent to the last commit
+  commit_date_seconds=$(git show --date=unix --pretty=format:"%ad" -s "${commit}" 2>/dev/null)
+  
+  if [[ -z ${commit_date_seconds} ]] ; then
+    # the ${commit} did not exist
+    return 1
+  fi
+
+  if (( "${commit_date_seconds}" <= "${due_date_seconds}" )) ; then
+    return 0    # on time 
+  else
+    return 1    # the commit did not occur before the due date
+  fi
+}
+
+git_tagged_ontime "$@"

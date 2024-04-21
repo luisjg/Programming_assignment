@@ -1,0 +1,14 @@
+#! /bin/bash
+
+function git_matched_tags () {
+  tag="$1"
+
+  REMOTE_HASH=$(git ls-remote --tags origin ${tag} | awk '{print $1}' )
+  LOCAL_HASH=$(git show -s --format="%H" ${tag} 2>/dev/null) 
+
+  [[ ${REMOTE_HASH} == ${LOCAL_HASH} ]]
+
+}
+
+
+git_matched_tags "$@"

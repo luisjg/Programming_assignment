@@ -1,0 +1,6 @@
+~*
+.java_sub*
+.mips_sub*
+java_code
+mips_code
+*.class

@@ -1,0 +1,46 @@
+# This is a sample configuration file for the Simple Test Harness (sth).
+# Each test "case" is defined by a set of ENVironment variables.
+#
+# You can use this file as a starting point to create one or more test case.
+#
+# The configuration file presumes the following information is provided for each test case
+#
+# | ENV      | Description                          | Example                 | Option    |
+# |----------|--------------------------------------|-------------------------|-----------|
+# | DRIVER   | The default driver program           | java_subroutine         | Optional  |
+# | OPTIONS  | The options passed to ${DRIVER}      |                       | Optional  |
+# | ENTRY    | The entry point to start testing     | series_sum              | Required  |
+# | ARGS     | The arguments passed to ${ENTRY}     | '1 10'                  | Optional  |
+# | INPUT    | The filename contain the input       |                         | Optional  |
+# | OUTPUT   | The filename of the expected output  |                         | Optional  |
+# | EXITVAL  | The expected return value            | 55                       | Required  |
+#
+# Notes:
+#    - the value of ENTRY and EXITVAL must be defined for all test cases
+#    - the value of INPUT can either be a string or a filename
+#    - the value of OUTPUT can either be a string or a filename
+#
+# Given the above example, the following command will be executed.
+#   NOTE: Ensure you conform to bash quoting rules
+#
+# cat ${INPUT} | ${DRIVER} ${OPTIONS} ${ENTRY} ${ARGS} 
+#
+# The "[default]" label delineates the default values used for all test cases within the file.
+# The "[case]" label delineates the start of a single test case
+# The "[global]" label delineates the global values which override all values associated with a test case.
+#
+
+[default]   
+
+
+[global]    
+
+
+[case]
+DRIVER= 
+OPTIONS=
+ENTRY=  
+ARGS=   
+INPUT=  
+OUTPUT= 
+EXITVAL=
