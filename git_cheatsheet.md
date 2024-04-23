@@ -48,12 +48,12 @@
 
  | Command                                 | Description                          |
  |-----------------------------------------|--------------------------------------|
- | `git branch -c {branch}`                | Creates a branch                     |
- | `git --set-upstream-to=origin {branch}` |
- | `git switch {branch}`       |
- | `git merge  {branch}`       |
- | `git pull {remote} {branch}`  |
- | `git push {remote} {branch}`  |
+ | `git branch -c {branch}`                | Create a branch                      |
+ | `git --set-upstream-to=origin {branch}` | Define where to publish the branch   |
+ | `git switch {branch}`                   | Change to work on alternate branch   |
+ | `git merge  {branch}`                   | Merge {branch} into current branch   |
+ | `git pull {remote} {branch}`            | Update the branch from the remote    |
+ | `git push {remote} {branch}`            | Publish the branch                   |
 
 
 ## Configuration Information
