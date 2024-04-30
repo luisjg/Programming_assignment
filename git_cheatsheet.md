@@ -1,4 +1,4 @@
-# Git Command List Cheatsheet
+# Git Command List Cheat-sheet
 
 
 ## Variable Definition
@@ -44,7 +44,7 @@
  | `git push --tags`           | Publish all tags                     |
  | `git push --force --tags`   | Republish all tags                   |
 
-### Branch Related commands
+### Branch Related Commands
 
  | Command                                 | Description                          |
  |-----------------------------------------|--------------------------------------|
@@ -74,7 +74,7 @@
  | `git status`                | List files with changes             |  
  | `git diff {filename}`       | See changes to filename             |
  | `git commit`                | Commit to pending changes           |
- | `git log`                   | See log entrys of past changes      |
+ | `git log`                   | See log entries of past changes     |
 
 
 ## Making Changes to Files
@@ -84,7 +84,7 @@
  | `subl {file}`               | Edit the {file}                      |
  | `git add {file}`            | Stage file to be added               |
  | `git rm {file}`             | Stage file to be removed             |
- | `git commit -m '{message}'` | Commit to all staged activites       |
+ | `git commit -m '{message}'` | Commit to all staged activities      |
 
 
 ## Local Tag Management
@@ -107,7 +107,7 @@
  | `git ls-remote --tags origin {tag}` | List published tags   |
  | `git push --delete origin {tag}`    | Unpublish a tag       |
 
-## Opps I made a mistake!
+## Oops I made a mistake!
 
  | Command                       | Description                       |
  |-------------------------------|-----------------------------------|
