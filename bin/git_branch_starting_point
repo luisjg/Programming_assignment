@@ -21,7 +21,7 @@
 #   git-branch-starting-point  <branch> [main_branch]   
 #
 
-function git-branch-starting-point () {
+function git_branch_starting_point () {
   branch="$1"
   main="$2"
 
@@ -33,4 +33,4 @@ function git-branch-starting-point () {
 
 }
 
-git-branch-starting-point "$@"
+git_branch_starting_point "$@"

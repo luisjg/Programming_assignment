@@ -34,9 +34,9 @@
 #       `git push origin ${BRANCH}_submitted`
 
 
-BRANCHES ?= java java_tac mips
-BRANCH   ?= main
-MIN_COMMITS=5
+BRANCHES   ?= java java_tac mips
+BRANCH     ?= main
+MIN_COMMITS = 5
 
 #########################################################################################----
 # Variable Definitions associated with SUBMISSION
@@ -44,7 +44,7 @@ MIN_COMMITS=5
 SUBMISSION=                      # Include for completeness
 SUBMISSION_TAG=${BRANCH}_submitted
 
-BRANCH_START=$(shell bin/git-branch-starting-point origin/${BRANCH})
+BRANCH_START=$(shell bin/git_branch_starting_point origin/${BRANCH})
 NUM_COMMITS=$(shell git rev-list --count origin/${BRANCH} ^${BRANCH_START})
 
 # Test the above
