@@ -18,7 +18,7 @@
 #
 # Current command:
 #
-#   git-branch-starting-point  <branch> [main_branch]   
+#   git_branch_starting_point  <branch> [main_branch]   
 #
 
 function git_branch_starting_point () {
