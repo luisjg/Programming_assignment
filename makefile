@@ -86,15 +86,16 @@ MAKEFILE ?= makefile
 # validate_*:
 #   - a series of individual tests that validate one administrative requirement
 #
-
+# clean:
+#   - standard rule to do cleanup work
 
 all: 
 	@echo 
-	@echo "To test your java or mips code, \`cd\` to the correct directory and then type"
+	@echo "To test your java or mips code"
 	@echo "  \"make test_java\" to test your current java version"
 	@echo "  \"make test_mips\" to test your current mips version"
 	@echo
-	@echo "To validate the structure of your submission, \`cd\` to the top-level directory and then type"
+	@echo "To validate the structure of your submission"
 	@echo "  \"make validate\" to validate your final submission"
 	@echo "        \"make validate_java\" to validate just your java part"
 	@echo "        \"make validate_java_tac\" to validate just your java_tac part"
@@ -111,11 +112,11 @@ all:
 
 ############################################################################
 test_java:
-	STH_DRIVER=java_subroutine sth_validate ../test_cases 
+	cd java     ; STH_DRIVER=java_subroutine sth_validate ../test_cases  ; cd ..
 test_java_tac:
-	STH_DRIVER=java_subroutine sth_validate ../test_cases 
+	cd java_tac ; STH_DRIVER=java_subroutine sth_validate ../test_cases  ; cd ..
 test_mips:
-	STH_DRIVER=mips_subroutine sth_validate ../test_cases
+	cd mips     ; STH_DRIVER=mips_subroutine sth_validate ../test_cases  ; cd ..
 
 
 ############################################################################
@@ -180,6 +181,11 @@ validate_matched_tags:
 	  { echo "Remote/Local Tags Mismatch:  ${SUBMISSION_TAG} (hint \'git push origin submitted\')" ; false ; }
 
 
+.PHONEY: clean
+clean: 
+	${RM} */*.class
+	${RM} -r */.java_subroutine
+	${RM} -r */.mips_subroutine
 
 
 #

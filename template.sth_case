@@ -31,10 +31,22 @@
 #
 
 [default]   
-
+## DRIVER= 
+## OPTIONS=
+## ENTRY=  
+## ARGS=   
+## INPUT=  
+## OUTPUT= 
+## EXITVAL=
 
 [global]    
-
+## DRIVER= 
+## OPTIONS=
+## ENTRY=  
+## ARGS=   
+## INPUT=  
+## OUTPUT= 
+## EXITVAL=
 
 [case]
 DRIVER= 
