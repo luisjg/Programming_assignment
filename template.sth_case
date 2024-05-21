@@ -5,18 +5,18 @@
 #
 # The configuration file presumes the following information is provided for each test case
 #
-# | ENV      | Description                          | Example                 | Option    |
-# |----------|--------------------------------------|-------------------------|-----------|
-# | DRIVER   | The default driver program           | java_subroutine         | Optional  |
-# | OPTIONS  | The options passed to ${DRIVER}      |                       | Optional  |
-# | ENTRY    | The entry point to start testing     | series_sum              | Required  |
-# | ARGS     | The arguments passed to ${ENTRY}     | '1 10'                  | Optional  |
-# | INPUT    | The filename contain the input       |                         | Optional  |
-# | OUTPUT   | The filename of the expected output  |                         | Optional  |
-# | EXITVAL  | The expected return value            | 55                       | Required  |
+# | ENV         | Description                          | Example                 | Option    |
+# |-------------|--------------------------------------|-------------------------|-----------|
+# | DRIVER      | The default driver program           | java_subroutine         | Optional  |
+# | OPTIONS     | The options passed to ${DRIVER}      |                         | Optional  |
+# | ENTRY       | The entry point to start testing     | series_sum              | Required  |
+# | ARGS        | The arguments passed to ${ENTRY}     | '1 10'                  | Optional  |
+# | INPUT       | The filename contain the input       |                         | Optional  |
+# | OUTPUT      | The filename of the expected output  |                         | Optional  |
+# | EXIT_STATUS | The expected return value            | 55                      | Required  |
 #
 # Notes:
-#    - the value of ENTRY and EXITVAL must be defined for all test cases
+#    - the value of ENTRY and EXIT_STATUS must be defined for all test cases
 #    - the value of INPUT can either be a string or a filename
 #    - the value of OUTPUT can either be a string or a filename
 #
@@ -37,7 +37,7 @@
 ## ARGS=   
 ## INPUT=  
 ## OUTPUT= 
-## EXITVAL=
+## EXIT_STATUS=
 
 [global]    
 ## DRIVER= 
@@ -46,7 +46,7 @@
 ## ARGS=   
 ## INPUT=  
 ## OUTPUT= 
-## EXITVAL=
+## EXIT_STATUS=
 
 [case]
 DRIVER= 
@@ -55,4 +55,4 @@ ENTRY=
 ARGS=   
 INPUT=  
 OUTPUT= 
-EXITVAL=
+EXIT_STATUS=
