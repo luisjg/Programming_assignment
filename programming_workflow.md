@@ -12,41 +12,41 @@
    You can now work, in turn, each of the tasks:  java, java_tac, and mips.
    The following three subsections, outlines the commands you need to execute
 
-### To Start the Java Task
+### To Start the {task} Task
 
   ```bash
-  cd java
-  git branch -c java
-  git --set-upstream-to=origin java
+  cd {task}
+  git branch -c {task}
+  git --set-upstream-to=origin {task}
   touch {file}
   git add {file}
-  git commit -m 'creating file' 
-  git push orign java
+  git commit -m '{creating file}' 
+  git push orign {task}
   ```
 
-### Incrementally Work on the Java Task
+### Incrementally Work on the {task} Task
 
   ```bash
-  cd java
-  git switch java
+  cd {task}
+  git switch {task}
   for(( ; ; )) ; do 
     subl .
-    make test_java
-    git commit -m 'insert message' -a
+    make test_{task}
+    git commit -m '{insert message}' -a
   done
-  git pull origin java ; git push origin java
-  make validate_java
+  git pull origin {task} ; git push origin {task}
+  make validate_{task}
   ```
 
-### To Finish the Java Task
+### To Finish the {task} Task
 
   ```bash
   git switch main
-  git merge java
-  git tag java_submitted
+  git merge {task}
+  git tag {task}_submitted
   git pull ; git push
-  git push origin java_submitted
-  make confirm_java
+  git push origin {task}_submitted
+  make confirm_{task}
   ```
 
 ## To Finish the assignment

@@ -92,8 +92,10 @@ MAKEFILE ?= makefile
 all: 
 	@echo 
 	@echo "To test your java or mips code"
-	@echo "  \"make test_java\" to test your current java version"
-	@echo "  \"make test_mips\" to test your current mips version"
+	@echo "  \"make test\" to test your code: java, java_tac, and mips"
+	@echo "        \"make test_java\" to test your current java version"
+	@echo "        \"make test_java_tac\" to test your current mips version"
+	@echo "        \"make test_mips\" to test your current mips version"
 	@echo
 	@echo "To validate the structure of your submission"
 	@echo "  \"make validate\" to validate your final submission"
@@ -101,8 +103,7 @@ all:
 	@echo "        \"make validate_java_tac\" to validate just your java_tac part"
 	@echo "        \"make validate_mips\" to validate just your mips part"
 	@echo 
-	@echo "To confirm your assignment as been correctly submitted, "
-	@echo "  \`cd\` to the top-level directory and then type"
+	@echo "To confirm your assignment as been correctly submitted"
 	@echo "  \"make confirm\" to confirm your final submission"
 	@echo "        \"make confirm_java\" to conform just your java part"
 	@echo "        \"make confirm_java_tac\" to conform just your java_tac part"
@@ -111,6 +112,8 @@ all:
 
 
 ############################################################################
+test: test_java test_java_tac test_mips
+
 test_java:
 	cd java     ; STH_DRIVER=java_subroutine sth_validate ../test_cases  ; cd ..
 test_java_tac:
