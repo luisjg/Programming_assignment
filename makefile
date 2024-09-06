@@ -124,7 +124,7 @@ test_mips:
 
 ############################################################################
 validate:
-	for x in ${BRANCH} ; do  \
+	for x in ${BRANCHES} ; do  \
 	  BRANCH=$${x} make -f ${MAKEFILE} validate_branch ; \
 	done
 
