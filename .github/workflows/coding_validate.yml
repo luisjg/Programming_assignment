@@ -1,4 +1,4 @@
-name: Markdown (MD) Validator
+name: CODE Validator
 
 on:
   push:
