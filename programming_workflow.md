@@ -5,7 +5,7 @@
   open {web-url}
   # get the {git-url}
   cd ~/classes/comp122/deliverables
-  git clone clone {git-url}
+  git clone {git-url}
   cd ~/classes/comp122/deliverables/{assignment}
   ```
 
