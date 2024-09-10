@@ -17,7 +17,7 @@
   ```bash
   cd {task}
   git branch -c {task}
-  git --set-upstream-to=origin {task}
+  git branch --set-upstream-to=origin {task}
   touch {file}
   git add {file}
   git commit -m '{creating file}' 
