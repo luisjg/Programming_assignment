@@ -53,7 +53,6 @@
 
   ```bash
   git switch main
-  git main
   make confirm
   ```
 
