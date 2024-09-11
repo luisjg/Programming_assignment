@@ -7,4 +7,4 @@ These test cases are evaluated via an automated process
 
 
 $ cd java
-$ sth-validate ../test_cases
+$ sth_validate ../test_cases
