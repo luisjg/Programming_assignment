@@ -15,24 +15,25 @@
 ### To Start the {task} Task
 
   ```bash
-  cd {task}
-  git branch -c {task}
+  git branch {task}
   git branch --set-upstream-to=origin {task}
-  touch {file}
-  git add {file}
+  touch {task}/{file}
+  git add {task}/{file}
   git commit -m '{creating file}' 
-  git push orign {task}
+  git push origin {task}
   ```
 
-### Incrementally Work on the {task} Task
+### Incrementally Work on a {task} Task
 
   ```bash
-  cd {task}
   git switch {task}
   for(( ; ; )) ; do 
     subl .
     make test_{task}
     git commit -m '{insert message}' -a
+    if [[ done or need a drink ]] ; then
+      break;
+    fi
   done
   git pull origin {task} ; git push origin {task}
   make validate_{task}
