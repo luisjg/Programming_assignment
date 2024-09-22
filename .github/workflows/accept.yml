@@ -16,7 +16,7 @@ jobs:
 
     - name: Validate Coding Assignment
       steps:
-        - run: git checkout --orphan latest_branch
+        - run: git checkout - -orphan latest_branch
         - run: rm -f answers.md
         - run: rm -fr solution
         - run: git add -A
