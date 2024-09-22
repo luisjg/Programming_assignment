@@ -1,0 +1,19 @@
+name: Accept Validator
+
+on: fork
+
+jobs:
+  accept:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        # fetch-depth is set to zero to obtain everything ... which includes history, logs., refs
+
+    - name: Validate Coding Assignment
+      run: make -k accept
+
