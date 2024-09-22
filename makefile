@@ -115,39 +115,46 @@ all:
 test: test_java test_java_tac test_mips
 
 test_java:
+	@echo === Testing java code     ===
 	cd java     ; STH_DRIVER=java_subroutine sth_validate ../test_cases  ; cd ..
+	@echo
+
 test_java_tac:
+	@echo === Testing java_tac code ===
 	cd java_tac ; STH_DRIVER=java_subroutine sth_validate ../test_cases  ; cd ..
+	@echo
 test_mips:
+	@echo === Testing mips code     ===
 	cd mips     ; STH_DRIVER=mips_subroutine sth_validate ../test_cases  ; cd ..
+	@echo
 
 
 ############################################################################
 validate:
-	for x in ${BRANCHES} ; do  \
+	@for x in ${BRANCHES} ; do  \
 	  BRANCH=$${x} make -f ${MAKEFILE} validate_branch ; \
 	done
 
 validate_java:
-	BRANCH=java     make -f ${MAKEFILE} validate_branch
+	@BRANCH=java     make -f ${MAKEFILE} validate_branch
 validate_java_tac:
-	BRANCH=java_tac make -f ${MAKEFILE} validate_branch
+	@BRANCH=java_tac make -f ${MAKEFILE} validate_branch
 validate_mips:
-	BRANCH=mips     make -f ${MAKEFILE} validate_branch
+	@BRANCH=mips     make -f ${MAKEFILE} validate_branch
 
 
 ############################################################################
 confirm:
-	for p in ${BRANCHES} ; do  \
+	@for p in ${BRANCHES} ; do  \
 	  BRANCH=$${p} make -f ${MAKEFILE} confirm_branch ; \
 	done
 
 confirm_java:
-	BRANCH=java     make -f ${MAKEFILE} confirm_branch
+	@BRANCH=java     make -f ${MAKEFILE} confirm_branch
 confirm_java_tac:
-	BRANCH=java_tac make -f ${MAKEFILE} confirm_branch
+	@BRANCH=java_tac make -f ${MAKEFILE} confirm_branch
 confirm_mips:
-	BRANCH=mips     make -f ${MAKEFILE} confirm_branch
+	@BRANCH=mips     make -f ${MAKEFILE} confirm_branch
 
 
 confirm_branch: validate_branch
@@ -160,11 +167,11 @@ confirm_branch: validate_branch
 validate_branch: validate_branch_exists validate_number_commits validate_merged validate_ontime
 
 validate_branch_exists:
-	@ [[ "$$(git branch --list ${BRANCH})" == "  ${BRANCH}" ]] || \
+	@ [[ "$$(git branch --list --format="%(refname:short)" ${BRANCH})" == "${BRANCH}" ]] || \
 	  { echo "Branch ${BRANCH} does not exist" ; false ; }
 
 validate_merged:
-	@ [[ "$$(git branch --merged main ${BRANCH})" == "  ${BRANCH}" ]] || \
+	@ [[ "$$(git branch --format="%(refname:short)" --merged main ${BRANCH})" == "${BRANCH}" ]] || \
 	  { echo "Branch ${BRANCH} has not been merged to main" ; false ; }
 
 validate_number_commits: 
@@ -215,7 +222,18 @@ grade:
 
 copy_code: validate_branch || bash -lc 'checkout_due_date'
 	mkdir -p grading 
-	git switch ${BRANCH}_submitted   -- issue is that it might not be before due_date
+	git switch ${BRANCH}_submitted   #-- issue is that it might not be before due_date
 	cp -R ${BRANCH} grading
 	git switch main
 
+
+
+accept:
+	# Steps needed to prepare the students repo
+	git checkout --orphan latest_branch
+	rm -f answers.md
+	rm -fr solution
+	git add -A
+	git commit -am "Initial commit"
+	git branch -D main
+	git branch -m main
