@@ -14,13 +14,5 @@ jobs:
         fetch-depth: 0
         # fetch-depth is set to zero to obtain everything ... which includes history, logs., refs
 
-    - name: Validate Coding Assignment
-      steps:
-        run: git checkout --orphan latest_branch
-        run: rm -f answers.md
-        run: rm -fr solution
-        run: git add -A
-        run: git commit -am "Initial commit"
-        run: git branch -D main
-        run: git branch -m main
-
+    - name: Accept Coding Assignment
+      run: make -k accept
