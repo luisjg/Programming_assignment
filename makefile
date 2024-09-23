@@ -230,6 +230,8 @@ copy_code: validate_branch || bash -lc 'checkout_due_date'
 
 accept:
 	# Steps needed to prepare the students repo
+	git config user.email "steve@csun.edu"
+	git config user.name "Professor Fitzgerald"
 	git checkout --orphan latest_branch
 	rm -f answers.md
 	rm -fr solution
